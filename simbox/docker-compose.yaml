@@ -1,0 +1,13 @@
+version: "3.2"
+services:    
+    sandbox:
+        image: sandbox:latest
+        container_name: ${CONTAINER_NAME}
+        privileged: true
+        volumes: 
+        - type: bind
+          source: "./storage"
+          target: "/home/${USER}/devel"   
+        ports:
+                - "${PORT_HOST}:${PORT_CONTAINER}"
+        tty: true
